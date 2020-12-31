@@ -1079,3 +1079,11 @@ button {
   font-family: 'Tajawal', sans-serif;
 }
 /*# sourceMappingURL=Searchs_131.css.map */
+.card{
+  float: right;
+  padding: 15px;
+  margin: 15px;
+}
+.card h5,.card p{
+  font-family: 'Tajawal', sans-serif;
+}
