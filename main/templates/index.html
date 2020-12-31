@@ -1,36 +1,6 @@
-{% load static %}
-<html>
-  <head>
-    <title>Express</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  </head>
+{% extends 'base.html' %}
+{% block content %}
 
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light navvv">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'home' %}">الرئيسيه</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">تسجيل</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">تسجيل دخول</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
   <div class="s131">
       <form action="{% url 'search_results' %}" method="Get">
         <div class="inner-form">
@@ -41,7 +11,8 @@
             <button class="btn-search" type="submit" >بحث</button>
           </div>
         </div>
-      <div class="cardd">
+      </form>
+            <div class="cardd">
         <ul>
           {% for post in object_list %}
             <li>
@@ -51,10 +22,5 @@
           {% endfor %}
         </ul>
       </div>
-      </form>
     </div>
-
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.js' %}"></script>
-
-</html>
+    {% endblock content %}

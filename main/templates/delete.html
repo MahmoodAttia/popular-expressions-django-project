@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static   %}
+
+{% block content %}
+
+<div class="card"  > 
+  <div class="card-body">
+
+  <h3> هل انت متاكد؟</h3>
+  
+  <form  action="{% url 'delete' order.id%}" method="POST">
+   {% csrf_token %}
+  <a href="{% url 'home'%}"> العوده</a>
+ 
+  <button type="submit" class="btn btn-primary">نعم</button>
+</form>
+
+  </div>
+</div>
+{% endblock content%}
