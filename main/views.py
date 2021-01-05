@@ -1,4 +1,5 @@
 from django.views.generic.edit import CreateView
+from main.filters import OrderFilter
 from main.forms import Addpost, reg
 from django.db.models.query_utils import Q
 from main.models import Post
@@ -9,6 +10,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 def home(request):
     return render(request,template_name="index.html")
+
+
+def filters(request):
+    orders = Post.objects.all()
+    number_orders = orders.count()
+    searchFilter = OrderFilter(request.GET , queryset=orders)
+    orders = searchFilter.qs
+    context = {'myFilter': searchFilter ,'orders': orders,'number_orders': number_orders }
+    return render(request,"exprs.html",context)
 
 class SearchResultsView(ListView):
     model = Post
@@ -35,7 +45,7 @@ def register(request):
 class creatpost(LoginRequiredMixin,CreateView):
     model = Post
     fields = [
-        'title','content'
+        'title','content','govern'
     ]
     template_name='add.html'
     

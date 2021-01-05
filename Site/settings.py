@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '$=xb-kgi&imk@fi=4s@v!&f-6uk2to96h#9i0t@t1uftk0!02z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['fstup.herokuapp.com','127.0.0.1']
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main',
     'crispy_forms',
     'bootstrapform',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
