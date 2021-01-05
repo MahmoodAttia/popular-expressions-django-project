@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container pt-5 pb-5">
+  <div class="row">
+    <div class="col-sm">
+    <form class="form-inline my-2 my-lg-0" method="GET">
+     {{myFilter.form}}
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">بحث</button>
+    </form>
+    </div>    
+  </div>
+  
+  <div class="container">
+<table class="table">
+  <thead class="thead-dark">
+    <tr> 
+      <th scope="col">المصطلح</th>
+      <th scope="col">الوصف</th>
+      <th scope="col">التاريخ</th>
+       <th scope="col">الخيارات</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for item in orders  %}
+    <tr>
+      <td>{{item.title}}</td>
+      <td>{{item.content}}</td>
+      <td>{{item.date}}</td>
+       <td>
+       <a href="{% url 'update' item.id%}"><i class="fas fa-edit"></i></a>
+       <a class="text-danger" href="{% url 'delete' item.id %}"><i class="fas fa-trash-alt"></i></a>
+       </td>
+       </tr>  
+      {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+    {% endblock content %}

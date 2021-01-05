@@ -6,9 +6,12 @@ from django.db import models
 
 # Create your models here.
 
+GOVERNS = ('AlSharkia',('AlSharkia')),('Alexandria',('Alexandria')),('Cairo',('Cairo'))
+
 class Post(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(default=' ')
+    govern = models.CharField(max_length=50,choices=GOVERNS)
     date = models.DateTimeField(default=timezone.now)
     active = models.BooleanField(default=False)
     user = models.ForeignKey(User,on_delete=CASCADE)
